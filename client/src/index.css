@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-pine-600 ring-offset-2 ring-offset-paper;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c3cbc5;
+    border-radius: 9999px;
+    border: 2px solid #f1f3ee;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-pine-600 text-white hover:bg-pine-700;
+  }
+  .btn-secondary {
+    @apply bg-white text-ink ring-1 ring-inset ring-ink/20 hover:bg-ink/5;
+  }
+  .btn-danger {
+    @apply bg-alarm-600 text-white hover:bg-red-800;
+  }
+  .btn-ghost-danger {
+    @apply text-alarm-600 hover:bg-alarm-50;
+  }
+  .input {
+    @apply min-h-[44px] w-full rounded-lg border border-ink/20 bg-white px-3 text-sm placeholder:text-ink-soft/70 focus:border-pine-600 focus:outline-none focus:ring-2 focus:ring-pine-600/30;
+  }
+  textarea.input {
+    @apply py-2;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .chip {
+    @apply inline-flex min-h-[44px] items-center gap-2 rounded-full bg-white px-4 text-sm ring-1 ring-inset ring-ink/15 transition-colors hover:bg-pine-50 hover:ring-pine-600/40;
+  }
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-toast { animation: toast-in 0.2s ease-out; }
+.animate-pop { animation: pop-in 0.15s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-toast, .animate-pop, .animate-spin { animation: none; }
+}
