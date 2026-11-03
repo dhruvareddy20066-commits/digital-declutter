@@ -1,5 +1,12 @@
 # DigitalDeclutter
 
+**Live app:** https://digital-declutter-one.vercel.app
+
+**API:** https://digital-declutter-2pbm.onrender.com/api/items
+
+> The API runs on Render's free tier, so the first request can take up to a minute to wake up.
+
+An account, file and subscription cleanup planner built with the MERN stack.
 An account, file and subscription cleanup planner built with the MERN stack.
 Track what you want to clean up, set how often each item should be reviewed, and let the app flag anything you have not looked at for too long.
 
